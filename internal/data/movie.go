@@ -1,6 +1,7 @@
 package data
 
 import (
+	"database/sql"
 	"time"
 
 	"github.com/rehmanm/greenlight/internal/validator"
@@ -33,5 +34,13 @@ func ValiateMovie(v *validator.Validator, movie *Movie) {
 	v.Check(len(movie.Genres) <= 5, "genres", "must not contain more than genre")
 
 	v.Check(validator.UniqueValues(movie.Genres), "genres", "must not contain duplicate values")
+
+}
+
+type MovieModel struct {
+	DB *sql.DB
+}
+
+func (m *MovieModel) Insert(movie *Movie) {
 
 }

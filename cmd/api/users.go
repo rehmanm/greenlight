@@ -2,7 +2,6 @@ package main
 
 import (
 	"errors"
-	"fmt"
 	"net/http"
 	"time"
 
@@ -139,5 +138,4 @@ func (app *application) activateUserHandler(w http.ResponseWriter, r *http.Reque
 		app.serverErrorResponse(w, r, err)
 	}
 
-	fmt.Print("activating user")
 }
